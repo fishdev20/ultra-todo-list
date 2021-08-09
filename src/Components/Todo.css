@@ -1,0 +1,34 @@
+.completed {
+    text-decoration: line-through;
+    color: red;
+  }
+.todo {
+  display: flex;
+  flex-direction: row;
+}
+li{
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom :1px solid black;
+}
+.todo {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+.icons {
+  font-size: 5px;
+}
+.icon {
+  font-size: 12px;
+}
+.icon:not(:last-child) {
+  margin-right: 5px;
+}
+.completed {
+  text-decoration: line-through;
+  color: red;
+  opacity: 0.7;
+}
