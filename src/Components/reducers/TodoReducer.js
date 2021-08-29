@@ -24,22 +24,12 @@ export const TodoReducer =  (state,action) => {
             
         case ADD_TODO:
             return [...state,payload.todo]
-            // setTodos([...todos,todo]);
             
         case DELETE_TODO:
             return state.filter(todo => todo.id !== payload.id);
 
         case COMPLETE_TODO:
-            //     setTodos(todos.map(todo => {
-    //         if(todo.id === id) {
-    //             return {
-    //                 ...todo, 
-    //                 completed: !todo.completed
-    //             }  
-    //         }
-    //         return todo; 
-    //     })) 
-    //   };
+           
              return state.map(todo => {
                 if(todo.id === payload.id) {
                     return{
