@@ -19,7 +19,7 @@ export const TodoReducer =  (state,action) => {
 
         case SAVE_TODOS:
             console.log('HEllo');      
-            localStorage.setItem('todos', JSON.stringify(todos))  
+            localStorage.setItem('todos', JSON.stringify(payload.todos))  
             return state;
             
         case ADD_TODO:

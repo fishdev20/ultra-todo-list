@@ -1,6 +1,6 @@
-import React, { createContext, useEffect, useReducer, useState } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import { TodoReducer } from '../reducers/TodoReducer';
-import { GET_TODOS } from '../reducers/Types';
+import { GET_TODOS, SAVE_TODOS } from '../reducers/Types';
 
 export const TodoContext = createContext();
 
@@ -37,24 +37,15 @@ const TodoContextProvider = ({ children }) => {
             payload: null
         })    
     }, []);
-    // useEffect(() => {
-    //     console.log('hello')
-    //     const todos = localStorage.getItem('todos')
-    //     if(todos) setTodos(JSON.parse(todos))
-        
-    // }, []);
-
-    // useEffect(() => {
-    //     console.log('HEllo'); 
-       
-    //     localStorage.setItem('todos', JSON.stringify(todos))  
-    // }, [todos]);
+    useEffect(() => {
+        dispatch({
+            type: SAVE_TODOS,
+            payload: {todos}
+        })    
+    }, [todos]);
 
     const todoContextData = {
         todos,
-        // addTodoHandler,
-        // deleteHandler,
-        // completeHandler,
         dispatch
     };
 

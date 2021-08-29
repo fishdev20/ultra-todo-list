@@ -19,11 +19,6 @@ export default function FormTodo({setStatus}) {
        
         const handleSubmit = e => {
             e.preventDefault();
-            // addTodoHandler({
-            //     text: inputText,
-            //     completed: false,
-            //     id: Math.random()* 1000
-            // })
             dispatch({
                 type: ADD_TODO,
                 payload: {
@@ -36,8 +31,7 @@ export default function FormTodo({setStatus}) {
             })
             setInputText("");
         }
-        // load context
-        // const { addTodoHandler } = useContext(TodoContext)
+        
         const { dispatch } = useContext(TodoContext)
         
 

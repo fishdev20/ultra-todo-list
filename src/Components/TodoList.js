@@ -8,30 +8,9 @@ import { TodoContext } from './Context/TodoContext';
 export default function TodoList({setTodos}) {
   // Load Context
   const {todos} = useContext(TodoContext);
-  
-  
-//   const {status} = useContext(TodoContext);
-//   const {filterTodo} = useContext(TodoContext);
-const [status, setStatus] = useState('all');
-const [filterTodo, setFilterTodo] = useState([]);
+  const [status, setStatus] = useState('all');
+  const [filterTodo, setFilterTodo] = useState([]);
 
-
-
-// useEffect (() => {
-//     const getLocal = () => {
-//       if(localStorage.getItem('todos') === null) {
-//         localStorage.setItem('todos', JSON.stringify([]));
-//       }
-//       else {
-//         let todoLocal = JSON.parse(localStorage.getItem('todos'));
-//         setTodos(todoLocal);
-//       }
-//     };
-//     getLocal();
-       
-//   }, []);
-
-  
   useEffect(() => {
     const filterHandler = () => {
       switch(status){
@@ -50,22 +29,6 @@ const [filterTodo, setFilterTodo] = useState([]);
     console.log('hey');
   },[todos,status]);
 
-
-    
-
-
-// useEffect(() => {
-//     const saveLocal = () => {
-//         localStorage.setItem('todos', JSON.stringify(todos));
-//     };
-//     filterHandler();
-//     saveLocal();
-//     console.log('hey');
-// }, [todos,status]);
-
-  
- 
-  
     return (
         <div className="todolist">
             <FormTodo     
@@ -73,21 +36,15 @@ const [filterTodo, setFilterTodo] = useState([]);
             />
             <ListGroup 
                 variant="flush" 
-                className="todo-list"  
-                              
-            >
-              
+                className="todo-list"                   
+            >             
               {filterTodo.map(todo=>(
                   <Todo
                       key={todo.id}
                       text={todo.text}
                       todos={todos}
-                      todo={todo}
-                       
-                      
-                  >
-                      {todo.id}
-                      </Todo>
+                      todo={todo}                      
+                  />
                 ))}
             </ListGroup>
         </div>
